@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 
 class Piece {
-  Uuid: string;
+  uuid: string;
   text: string;
 }
 
@@ -28,4 +28,14 @@ export class PieceStoreService implements OnInit {
     this.piecesSubject.next(val);
   }
 
+  addPiece(piece: Piece) {
+    this.pieces = [
+      ...this.pieces,
+      piece
+    ];
+  }
+
+  removePiece(uuid: string) {
+    this.pieces = this.pieces.filter(piece => piece.uuid !== uuid);
+  }
 }
