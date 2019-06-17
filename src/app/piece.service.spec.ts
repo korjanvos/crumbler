@@ -12,6 +12,6 @@ describe('PieceStoreService', () => {
     let lastIndex  = service.getPieces().length-1;
     let p:Piece = new Piece();
     service.addPiece(p);
-    expect(service.getPieces[lastIndex+1] ===  p);
+    expect(service.getPieces()[lastIndex+1] ===  p).toBeTruthy();
   });
 });
