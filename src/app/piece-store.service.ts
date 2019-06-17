@@ -1,18 +1,14 @@
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Piece } from './PieceModel';
 
 @Injectable({
   providedIn: 'root'
 })
 
-class Piece {
-  uuid: string;
-  text: string;
-}
-
 export class PieceStoreService implements OnInit {
   private piecesSubject: BehaviorSubject<Piece[]> = new BehaviorSubject([]);
-  public readonly pieces$: Observable<Piece[]> = this._pieces_.asObservable();
+  public readonly pieces$: Observable<Piece[]> = this.piecesSubject.asObservable();
 
   constructor() {
   }
