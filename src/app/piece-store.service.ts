@@ -34,4 +34,19 @@ export class PieceStoreService implements OnInit {
   removePiece(uuid: string) {
     this.pieces = this.pieces.filter(piece => piece.uuid !== uuid);
   }
+
+
+  getPieces(): Piece[] {
+    return this.pieces;
+  }
+
+  updatePiece(newPiece: Piece) {
+    this.pieces = this.pieces.map(piece => {
+      if (piece.uuid === newPiece.uuid) {
+        return newPiece;
+      } else {
+        return piece;
+      }
+    });
+  }
 }
